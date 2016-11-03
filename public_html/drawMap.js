@@ -25,7 +25,10 @@ function drawMap() {
 
 	var riverPath = d3.geo.path().projection(projection);
 
-
+	var svg = d3.select("body")
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h);
 
 
 
@@ -46,7 +49,7 @@ function drawMap() {
 	});
 
 // Draw Rivers
-	d3.json("data/NHDFlowline.json", function(jsonData) {
+	d3.json("data/flowline-old.json", function(jsonData) {
 
 		riversJSON = jsonData;
 
@@ -61,10 +64,7 @@ function drawMap() {
 
 	});
 
-	var svg = d3.select("body")
-		.append("svg")
-		.attr("width", w)
-		.attr("height", h);
+
 
 }
 
